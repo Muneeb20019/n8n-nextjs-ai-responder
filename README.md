@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI-Powered n8n Contact Automation
 
-## Getting Started
+An end-to-end system that captures website inquiries, processes them via n8n, and engages users with AI-generated responses.
 
-First, run the development server:
+### 🚀 Tech Stack
+- **Frontend:** Next.js (React) hosted on Vercel.
+- **Automation:** n8n Workflow.
+- **AI Model:** DeepSeek-V3 via OpenRouter API.
+- **Lead Storage:** Google Sheets API.
+- **Email Service:** SMTP (Mailtrap for testing).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🧠 Key Decisions
+- **JavaScript Code Node:** Instead of using standard date nodes, I used a custom JavaScript Code node in n8n to handle the IST timezone conversion. This ensures the 2-minute follow-up reflects the exact execution time in the `Asia/Kolkata` zone.
+- **Webhook Security:** Used Vercel's Environment Variables (`NEXT_PUBLIC_N8N_WEBHOOK_URL`) to keep the automation endpoint secure.
+- **Mailtrap Sandbox:** Used for SMTP testing to demonstrate HTML email formatting without risk of spamming real addresses.
