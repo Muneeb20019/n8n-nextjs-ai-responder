@@ -54,5 +54,4 @@ A sophisticated end-to-end automation system that bridges a modern **Next.js** f
 *   **LinkedIn:** [Muneeb Ali Khan](https://www.linkedin.com/in/muneeb-ali-khan-2a1675365)
 *   **Live Demo:** [Vercel Deployment](https://full-stack-project-rosy.vercel.app)
 
----
-*Built for the n8n Developer Technical Assignment.*
+
