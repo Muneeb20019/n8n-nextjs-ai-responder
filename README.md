@@ -5,7 +5,7 @@ A sophisticated end-to-end automation system that bridges a modern **Next.js** f
 ---
 
 ## 📸 Workflow Preview
-![Workflow Screenshot](https://github.com/Muneeb2019/n8n-nextjs-ai-responder/blob/main/public/workflow-screenshot.png?raw=true)
+![Workflow Screenshot](workflow-screenshot.png)
 
 > **Note:** Upload your screenshot to the `public` folder in GitHub and name it `workflow-screenshot.png` to see the image live!
 
