@@ -32,7 +32,7 @@ This system provides an **automated, asynchronous pipeline** that:
 *   **✉️ Dual-Phase Engagement:** 
     *   *Phase 1:* Immediate AI response via **SMTP (Mailtrap)**.
     *   *Phase 2:* 2-minute delayed follow-up to simulate human review.
-*   **🕒 Dynamic Timezone Logic:** A specialized **n8n Code Node (JavaScript)** calculates the exact moment of delivery in `Asia/Kolkata` format.
+*   **🕒 Dynamic Timezone Logic:** Custom **JavaScript** implementation to calculate and format the current time in **IST (Asia/Kolkata)** at the exact moment of delivery.
 *   **📊 CRM Integration:** Real-time data streaming to **Google Sheets API** for persistent lead tracking.
 *   **🔐 Production Security:** Secured via **Vercel Environment Variables** and Webhook protection.
 
@@ -61,30 +61,18 @@ Designed to handle thousands of records by utilizing n8n's asynchronous webhook 
 The system is built to prevent duplicate processing. By generating a unique `timestamp` at the frontend, the n8n backend can implement check-logic to ensure each lead is only emailed and logged once.
 
 ### **Custom JavaScript Logic**
-To satisfy strict timezone requirements, I bypassed standard nodes in favor of a **JavaScript Code Node** to ensure time is calculated at the exact moment of execution:
-```javascript
-const istTime = DateTime.now().setZone('Asia/Kolkata').toFormat('yyyy-MM-dd HH:mm:ss');
-return { currentTimeIST: istTime };
----
-
-## 🛠️ Setup and Installation
-
-### 1. Frontend Setup (Vercel)
-1. Clone this repository.
-2. Deploy to Vercel.
-3. Add the Environment Variable: `NEXT_PUBLIC_N8N_WEBHOOK_URL` = `Your_n8n_Production_Webhook_URL`
-
-### 2. n8n Workflow Setup
-1. Import the `.json` workflow file provided in this repo.
-2. **Configure Credentials:** Google Sheets, OpenRouter (Header Auth), and SMTP (Mailtrap).
-3. **Activate:** Toggle the workflow to **Active**.
+To satisfy strict timezone requirements, I utilized a **JavaScript Code Node** in n8n. This ensures the follow-up time is calculated dynamically using the Luxon library at the exact millisecond of execution, rather than being hardcoded from the initial trigger.
 
 ---
 
 ## ✍️ Author
+
 **Muneeb Ali Khan**
-*   **GitHub:** [@Muneeb2019](https://github.com/Muneeb2019)
-*   **LinkedIn:** [Muneeb Ali Khan](https://www.linkedin.com/in/muneeb-ali-khan-2a1675365)
-*   **Live Demo:** [Vercel Deployment](https://full-stack-project-rosy.vercel.app)
+- **GitHub:** [@Muneeb20019](https://github.com/Muneeb20019)
+- **LinkedIn:** [Muneeb Ali Khan](https://www.linkedin.com/in/muneeb-ali-khan-2a1675365)
+- **Live Demo:** [Vercel Deployment](https://full-stack-project-rosy.vercel.app)
+
+
+
 
 
